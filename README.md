@@ -1,33 +1,8 @@
-# Supabase Dog Adoption App
-
-Use [this template](https://github.com/alchemycodelab/half-baked-web-01-adopt-a-dog) for this deliverable.
-
-## Learning Objectives
-
--   Draw a simple architecture diagram describing the relationship between a user's computer and a single RESTful API.
--   On load, use fetch and async/await to hit a GET endpoint, get all items, and set state and update the view using the response.
--   In front end apps with asynchronous behavior, use the network tab to examine (and debug) the request being sent to a server and the response received from a server.
+# Rubric
 
 Here is the model for the `dogs` table
 
 ![model of dogs table](./dogs-model.png)
-
-### Live Example:
-
-https://alchemycodelab.github.io/web-01-adopt-a-dog/
-
-### Description
-
-For this deliverable you have been given a supabase database and some render functions. Your job is to add the code in `fetch-utils.js`, `app.js` and `detail.js` to render the list of animals and the details page.
-
-## Rubric
-
-The following is required for your assignment to be graded:
-
--   PR open from `dev` to `main`
--   PR Passes CI (lint + tests)
--   PR preview on netlify
--   At least 4 commits, for each working feature
 
 | Tasks...                                                                                       | **10** |
 | ---------------------------------------------------------------------------------------------- | ------ |
@@ -37,3 +12,36 @@ The following is required for your assignment to be graded:
 | ASYNC: `getDog(id)` : return single dog from supabase                                          | 2      |
 | Detail page should get the id from the URL and use that id to fetch that dog from supabase.    | 2      |
 | Detail page should show the user details about the dog (including age, breed, and description) | 2      |
+
+## HTML
+
+-   Home Page:
+    -   div to hold list of items
+    -   render each item fetched from supabase
+-   Detail Page:
+    -   section and div container for details
+    -   header: link back to homepage
+
+## Events
+
+-   home page load
+    -   fetch items from supabase
+    -   render items in cards
+    -   display items
+        -   loop through, append elements in render, append to container in DOM
+-   detail page load
+    -   fetch single item (by ID)
+    -   render to page
+    -   use URLSearchParams to get ID from URL
+
+## Functions
+
+-   fetch-utils.js: getDogs() getDogById()
+-   render-utils.js: renderCards() renderDetails()
+
+## Slices
+
+1. get items to render on load
+2. make cards clickable, redirecting to detail page
+3. render appropriate details on detail page
+4. use URLSearchParams to fill in id dynamically
